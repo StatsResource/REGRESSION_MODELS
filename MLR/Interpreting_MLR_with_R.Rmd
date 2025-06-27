@@ -1,0 +1,82 @@
+# Tutorial: Interpreting Multiple Linear Regression Output in R
+
+## Overview
+
+We are modeling `profit` as a linear function of several predictors:
+
+- Model 1 (`fit1`): `profit ~ QC + Mrkt + growth`
+- Model 2 (`fit2`): `profit ~ QC + Mrkt + growth + unemp + yr`
+
+---
+
+## Step-by-Step Interpretation of Output
+
+### 1. **Call**
+
+This confirms the regression formula used. It helps verify which predictors were included in the model.
+
+---
+
+### 2. **Coefficients Table**
+
+Each row corresponds to one model term (intercept or predictor), and each column gives:
+
+- **Estimate**: The fitted coefficient; tells you the predicted change in `profit` for one unit increase in the predictor, holding others constant.
+- **Std. Error**: Standard error of the estimate.
+- **t value**: The test statistic for `H₀: β = 0`
+- **Pr(>|t|)**: The p-value corresponding to the t-test. Lower p-values (< 0.05) suggest the predictor is statistically significant.
+
+#### Example (fit1):
+| Variable   | Estimate    | p-value  | Interpretation |
+|------------|-------------|----------|----------------|
+| QC         | 0.71        | 0.192    | Not significant. A 1-unit increase in QC increases predicted profit by ~0.71, but this isn’t statistically reliable. |
+| Mrkt       | 12.78       | 0.009 ** | Significant. Market size is positively associated with profit. |
+| growth     | -3041.92    | 0.119    | Not significant, but may suggest a negative trend if sample size were larger. |
+| Intercept  | -840.96     | 0.018 *  | Starting value of `profit` when all predictors are zero (not always meaningful by itself). |
+
+---
+
+### 3. **Residual Standard Error (RSE)**
+
+- `fit1`: 57.3
+- `fit2`: 45.72
+
+RSE gives an estimate of the typical size of the residuals (errors). Lower RSE is generally better. In `fit2`, the model fits the data more tightly.
+
+---
+
+### 4. **R-squared and Adjusted R-squared**
+
+| Model | R-squared | Adjusted R² | Interpretation |
+|-------|-----------|-------------|----------------|
+| fit1  | 0.778     | 0.667       | 77.8% of variation in `profit` is explained. Adjusted for # of predictors, 66.7%. |
+| fit2  | 0.9058    | 0.788       | Stronger explanatory power with more predictors, but adjusted R² increase is more modest (from 66.7% to 78.8%). |
+
+> Adjusted R² is more reliable when comparing models with different numbers of predictors.
+
+---
+
+### 5. **F-Statistic and Model p-value**
+
+| Model | F-statistic | Model p-value |
+|-------|-------------|----------------|
+| fit1  | 7.01 (p = 0.02184) | Model is statistically significant overall. |
+| fit2  | 7.692 (p = 0.03524) | Still significant, but with a bit more complexity and fewer degrees of freedom. |
+
+---
+
+### 6. **Interpretation Tips**
+
+- Variables like `QC` and `growth` show weak evidence of individual significance, but may contribute jointly to the model.
+- Adding predictors in `fit2` improved the overall R² and reduced error, but beware of **overfitting** with too many predictors.
+- A predictor’s significance might shift due to **collinearity** or changing degrees of freedom.
+
+---
+
+## Summary
+
+- ✅ Use the **coefficients and p-values** to assess which variables matter.
+- ✅ Use **R² and Adjusted R²** to measure model quality and compare models.
+- ✅ Use the **F-statistic** to assess if the model is statistically useful overall.
+- ❗ Don’t over-interpret coefficients that aren’t statistically significant.
+- ❗ Check assumptions visually (residual plots, normality) to verify model validity.
