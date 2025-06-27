@@ -1,0 +1,104 @@
+Absolutely, Kevin — here’s your linear regression analysis guide beautifully formatted in Markdown. You can embed the figures as needed by replacing the image placeholders with actual paths or URLs.
+
+---
+
+# Linear Regression Analysis
+
+## Introduction
+
+**Linear regression** is used when you want to predict the value of a variable based on another variable. The variable to be predicted is the **dependent variable** (or outcome), while the predictor is the **independent variable**.
+
+For example:
+
+- Predicting exam performance based on revision time  
+- Estimating cigarette consumption from years of smoking
+
+If you have two or more independent variables, use **multiple regression**.
+
+Software like **SPSS** can perform linear regression, interpret the results, and provide outputs. However, it’s crucial to first confirm that your data satisfies certain **assumptions** for the analysis to be valid.
+
+---
+
+## Assumptions
+
+There are six key assumptions to check before running a linear regression model.
+
+### Assumption 1: Variable Type
+
+Your two variables should be measured on an **interval or ratio scale** (i.e. continuous data). Examples include:
+
+- Revision time (hours)  
+- IQ score  
+- Weight (kg)  
+- Exam scores (0–100)
+
+---
+
+### Assumption 2: Linearity
+
+There must be a **linear relationship** between the independent and dependent variable. The easiest way to check this is by generating a **scatter plot** in SPSS and inspecting it visually.
+
+> If the pattern is non-linear, consider:
+> - Using **non-linear regression**, or  
+> - **Transforming** your variables (e.g. log, square root)
+
+**Example**:
+
+![Types of Linear Relationship](Regre1.jpg)
+
+---
+
+### Assumption 3: No Significant Outliers
+
+Outliers are unusual data points that don’t conform to the general pattern and may distort predictions.
+
+**Example**: A student with an IQ of 156 in a sample where the average is 108.
+
+Outliers may heavily influence the regression line and can reduce model reliability.
+
+**Example plot**:
+
+![Effect of an Outlier](Regre2.jpg)
+
+> SPSS provides tools (e.g. casewise diagnostics) to detect and manage outliers.
+
+---
+
+### Assumption 4: Independence of Observations
+
+Observations must be independent. This is typically tested using the **Durbin-Watson statistic** in SPSS. A value close to 2 suggests independence; values near 0 or 4 indicate potential autocorrelation.
+
+---
+
+### Assumption 5: Homoscedasticity
+
+The **residuals** (errors) should have **constant variance** across the line of best fit.
+
+Compare the scatterplots below for homoscedastic vs. heteroscedastic data:
+
+![Constant Variance](Regre3.jpg)
+
+> Real-world data might not be perfectly tidy — learn to assess and interpret this assumption properly and consider remedies like transformations or weighted regression.
+
+---
+
+### Assumption 6: Normally Distributed Residuals
+
+The residuals (not the variables) should be approximately **normally distributed**.
+
+Ways to check this in SPSS include:
+
+- **Histogram** with a normal curve overlay  
+- **Normal P–P Plot**
+
+---
+
+### Additional Notes
+
+- You can test all assumptions **except Assumption 1** using SPSS.
+- The order of checking matters — some violations may stop regression from being appropriate.
+- If assumptions are violated, **don't panic** — alternative methods (e.g. robust regression) may be available.
+
+---
+
+Let me know if you'd like a slide version of this tutorial, or want the SPSS steps detailed next!
