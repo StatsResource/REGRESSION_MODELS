@@ -1,153 +1,75 @@
-\documentclass[]{report}
+# Correlation
 
-\voffset=-1.5cm
-\oddsidemargin=0.0cm
-\textwidth = 480pt
+## Overview
 
-\usepackage{framed}
-\usepackage{subfiles}
-\usepackage{graphics}
-\usepackage{newlfont}
-\usepackage{eurosym}
-\usepackage{amsmath,amsthm,amsfonts}
-\usepackage{amsmath}
-\usepackage{color}
-\usepackage{amssymb}
-\usepackage{multicol}
-\usepackage[dvipsnames]{xcolor}
-\usepackage{graphicx}
-\begin{document}
+- **Correlation** measures the relationship between two or more variables.
+- Correlation coefficients range from **−1.00 to +1.00**:
+  - `+1.00`: perfect positive correlation  
+  - `−1.00`: perfect negative correlation  
+  - `0.00`: no correlation
+- The most commonly used correlation coefficient is **Pearson's r**, also known as the **product–moment correlation**.
+- Pearson's r measures the **linear** relationship between two continuous variables.
+- Scatter plots are useful to visualize the relationship between variables.
 
-\section{Correlation}
-\begin{itemize}
-	\item Correlation is a measure of the relation between two or more variables. 
-	%\item The measurement scales used should be at least interval scales, but other correlation coefficients are available to handle other types of data.
-	\item Correlation coefficients can range from -1.00 to +1.00. The value of -1.00 represents a perfect negative correlation while a value of +1.00 represents a perfect positive correlation. A value of 0.00 represents a lack of correlation.
+## Characteristics
 
+- Values of r are unit-free (e.g., unlike standard deviation which shares the units of the data).
+- The correlation coefficient must lie between −1 and +1:
+  \[
+  -1 \leq r \leq 1
+  \]
 
-	\item 
-	The most widely-used type of correlation coefficient is Pearson r, also called linear or product- moment correlation.
-	The pearson correlation coefficient is a metric.
+- Other correlation metrics include:
+  - **Spearman's rank correlation** (ρ)
+  - **Kendall’s Tau**
 
-	\item  Two variables that have no linear relationship have a correlation close to zero. 
-	
-	\item Scatter plots are a useful way of determing the likely relationship between two variables. 
-	
-	\item The Pearson correlation coefficient is most commonly used estimate for correlation. 
-	
-	\item Other types of correlation are tbe \textit{\textbf{Spearman Rho}} and the \textit{\textbf{Kendal Tau}} correlation coefficients. 
-	
-	%\item  These are not not part of this course,but it is important to know that they exist. 
-\end{itemize}
-%--------------------------------------------- %
+These are particularly useful for **ordinal data** or **non-linear** relationships.
 
+## Interpretation
 
+- A **strong positive linear relationship**: when one variable increases, so does the other.
+- A **strong negative linear relationship**: when one variable increases, the other decreases.
+- The sample-based estimate is denoted by **r**, while the population parameter is denoted by **ρ** ("rho").
 
-\begin{itemize}
-	\item Correlation is a measure of strength of \textbf{Linear Relationship} between two variables.
-	\item The Pearson correlation coefficient (denoted $r$) is the most comonly used statistical estimate for correlation. 
-	\item Correlation estimates are defined to be between -1 and 1. It is not possible to have a correlation value outside this range of values
-	\[ -1 \leq r \leq 1\]
-	\item 
-	Additionally correlation estimates are not denominated in any units. (Contrast this to standard deviation, which is denominated in the same units as the mean).
-\end{itemize}
+## Influence of Outliers
 
-%--------------------------------------------- %
+- **Outliers** can significantly influence the value of r, often misleading the interpretation.
+- Correlation and **simple linear regression** are closely related:
+  - Correlation measures linear association without implying direction or causality.
+  - Regression models how a change in one (independent) variable predicts another (dependent) variable.
 
+## Correlation vs. Causation
 
+- A significant correlation does **not** imply a **cause-effect** relationship.
+- For example:
+  > Ice cream sales and flu rates might be negatively correlated—but that doesn't mean ice cream prevents the flu.
+  > The real explanation could be a **latent variable**, such as **weather**:
+  > - Cold weather = more flu and fewer ice cream sales  
+  > - Warm weather = the opposite  
 
-\begin{itemize}
-	\item A strong positive linear relationship describes a relationship between two variables whereby an increase in one variable will closely coincide with an increase in the other variable. 
-	\item Conversely a strong negative linear relationship describes a relationship whereby an increase in one variable closely coincides with a decrease in the other. 
-\end{itemize}
-\begin{itemize}
-	\item The Pearson correlation estimate, which us based on sample data, is denoted r (although related metrics use capital R).
-	\item This measure is used as an estimate for the Population correlation, denoted by the greek letter $\rho$ ( pronounced ``Rho"). 
-	The estimate is computed using summation identities.
-	% (See the formulae ).
-	
-	%\item 
-	%Equivalently it can be computed using the  Sums of Squares Identities that are used to compute covariance and standard deviation <INSERT FORMULA> .
-	%Example
-	%determine the correlation estimate for the Spend V Impressions data.  
-\end{itemize}
-%-------------------------------------------------------- %
+## Formula
 
+The **Pearson correlation coefficient** is calculated as:
 
-\subsection{Outliers}
-\begin{itemize}
-	\item Outliers can greatly influence the computed value of an estimate.
-	\item  Correlation is closely related to Simple linear regression models, in that both are concerned with the linear relationship between variables. However Linear Regression has a different emphasis.
-	\item  Simple Linear Regression describes one independent variable (IV) and the response of the dependent variable (DV). 
-\end{itemize}
+\[
+r_{XY} = \frac{S_{XY}}{\sqrt{S_{XX} \cdot S_{YY}}}
+\]
 
+Where:
+- \( S_{XY} \): covariance between X and Y  
+- \( S_{XX} \), \( S_{YY} \): variance of X and Y respectively
 
+## Summary Points
 
+- Correlation quantifies **linear association**, not causality.
+- r = +1: perfect positive linear relationship  
+- r = −1: perfect negative linear relationship  
+- r = 0: no linear association
 
+> Different types of correlation coefficients exist depending on the scale and distribution of your data.
 
-\subsection{Correlation and Causality }
-Implicit is simple linear regression is the notion of causality. The dependent variable changes as the independent variable changes. The converse is not true.
-<some examples : hot temperature / ice cream example> .
-Correlation is not concerned with causality at all, hence the often used expression "causation does not imply causality ".
+---
 
-%-----------------------------------------------------%
-
-%---------------------------------------------------------------------%
-
-\section{Correlation}
-\begin{itemize}
-	\item This is a measure of Strength of Linear Relationship.
-	The correlation estimate is defined to be between -1 and 1.
-	\item It is not possible to have a correlation value outside this range of values
-	Additionally correlation estimates are not denominated in any units. (Contrast this to standard deviation, which is denominated in the same units as the mean ) .
-	\item A strong positive linear relationship describes a relationship between two variables whereby an increase in one variable will closely coincide with an increase in the other variable.
-	\item Conversely a strong negative linear relationship describes a relationship whereby an increase in one variable closely coincides with a decrease in the other.
-\end{itemize}
-
-
-\subsection{Correlation and cause-effect}
-\begin{itemize}
-	\item Note that a strong relationship between two variables does not
-	imply a cause-effect relationship.
-	\item For example, there is a strong negative correlation between the
-	sales of ice cream and the number of flu infections.
-	\item This does not mean that ice cream protects against flu.
-	\item This relationship results from a latent variable (a variable that has
-	not been observed).
-	\item Such a latent variable in this case is the weather. Low
-	temperatures and wet weather result in a high number of flu
-	infections and low ice cream sales. \item Hot, sunny weather leads to the
-	opposite.
-\end{itemize}
-
-
-
-%---------------------------------------------------------------------%
-
-\subsection{Correlation Coefficient : Formula}
-The estimate of the Pearson correlation coefficient is given by
-\[ r_{XY} = \frac{S_{XY}}{\sqrt{S_{XX}S_{YY}}} \]
-
-
-
-
-
-%-------------------------------------------------%
-\section{Correlation Coefficient}
-\begin{itemize}
-\item The Pearson correlation coefficient is a way of measuring the
-strength of the relationship between two quantitative variables.
-
-\item A correlation coefficient is a number between -1 and 1 which measures the degree to which two variables are linearly related. 
-\item If there is perfect linear relationship with positive slope between the two variables, we have a correlation coefficient of 1; if there is positive correlation, whenever one variable has a high (low) value, so does the other. 
-\item If there is a perfect linear relationship with negative slope between the two variables, we have a correlation coefficient of -1; if there is negative correlation, whenever one variable has a high (low) value, the other has a low (high) value. A correlation coefficient of 0 means that there is no linear relationship between the variables.
-\item 
-There are a number of different correlation coefficients that might be appropriate depending on the kinds of variables being studied.
-\end{itemize}
-
-
-
-%---------------------------------------------------------------------%
 
 %========================================================================%
 
@@ -437,106 +359,103 @@ Regression takes a group of random variables, thought to be predicting Y, and tr
 \section{Pearson's Correlation Coefficient}
 \[ r_{XY} = \frac{Sxy}{\sqrt{SxSy}} \]
 
-section{Correlation}
+--------------------------------------------------------------------------------------
+### Correlation
 
 This requires a simple calculation based in values given and the relevant formula.
 
 The formula for the Correlation estimate is as follows.
 
+Sure thing, Kevin! Here’s your content neatly reformatted in Markdown for clarity, structure, and visual polish:
 
+---
 
-\section{Spearman’s correlation coefficient }
+## Spearman’s Correlation Coefficient
 
-Spearman’s correlation coefficient is a statistical measure of the strength of a 
-monotonic relationship between paired data. In a sample it is denoted by 
-and is by 
-design constrained as follows 
+**Spearman’s rank correlation coefficient** (\( r_s \)) is a statistical measure of the strength and direction of a *monotonic* relationship between two variables.
 
-\[ -1 \leq r_s \leq 1 \]
-And its interpretation is similar to that of Pearsons, e.g. the closer 
-is to the stronger the monotonic relationship. Correlation is an effect size and so we can verbally describe the strength of the correlation using the following guide for the 
-\textbf{absolute} value of 
+### Key Properties
 
-\begin{itemize}
-	\item .00-.19 “very weak” 
-	\item .20-.39 “weak” 
-	\item .40-.59 “moderate” 
-	\item .60-.79 “strong” 
-	\item .80-1.0 “very strong” 
-\end{itemize}
+- \( r_s \) ranges between −1 and +1:
+  \[
+  -1 \leq r_s \leq 1
+  \]
+- Interpretation is similar to **Pearson's r**: the closer \( |r_s| \) is to 1, the stronger the monotonic relationship.
 
-The calculation of Spearman’s correlation coefficient and subsequent significance 
-testing of it requires the following data assumptions to hold: 
+### Descriptive Strength (based on absolute value of \( r_s \)):
 
-\begin{itemize}
-	\item interval or ratio level or ordinal; 
-	\item monotonically related. 
-\end{itemize}
+| Range       | Description     |
+|-------------|-----------------|
+| 0.00–0.19   | Very weak       |
+| 0.20–0.39   | Weak            |
+| 0.40–0.59   | Moderate        |
+| 0.60–0.79   | Strong          |
+| 0.80–1.00   | Very strong     |
 
-Note, unlike Pearson’s correlation, there is no requirement of normality and hence it 
-is a nonparametric statistic. 
+### Assumptions for Using Spearman's \( r_s \):
 
-%-------------------------------------------------%
-\section*{May 2013 Question 6b Correlation and Regression }
-Calculate the correlation coefficient and interpret the value.
-\begin{tabular}{|c|c|c|}
-	\hline Residence	& X	  & Y \\ 
-	\hline  &  &  \\ 
-	\hline  &  &  \\ 
-	\hline 
-\end{tabular} 
+- Data must be **ordinal**, **interval**, or **ratio** level.
+- Variables must be **monotonically related** (i.e. consistently increasing or decreasing).
 
+> Note: Unlike Pearson’s correlation, Spearman's does **not** assume normality — it's a **nonparametric** statistic.
 
-\subsubsection*{Implementation}
-The relevant \texttt{R} command to compute the correlation coefficient estimate is simply \texttt{\textbf{cor()}}.
+---
 
-%
-%\begin{framed}
-%\begin{verbatim}
-%cor(immer$Y1,immer$Y2)
-%
-%cor(iris[,1],iris[,3])
-%\end{verbatim}
-%\end{framed}
+## May 2013: Question 6b — Correlation and Regression
 
+**Task**: Calculate the correlation coefficient and interpret its value.
 
-%======================================================== %
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=0.7\linewidth]{Regre1}
-%\end{figure}
+### Sample Data
 
-\begin{itemize}
-	\item The strength of the relation is represented in a numeric value known at the \textbf{correlation coefficient}. 
-	\item This coefficient can take a value between -1 and 1. Additionally there are no units.
-	
-	\[ -1 \leq r \leq 1\]
-	
-	\item We can use the following graphic to help us interpret the correlation coefficient.
-\end{itemize}
-%\begin{figure}[h!]
-%	\centering
-%	\includegraphics[width=0.9\linewidth]{pearson-correlation-coefficient-interpretation}
-%\end{figure}
-{
-	
-	\begin{framed}
-		\begin{verbatim}
-		> X
-		[1] 104.40 104.14 104.84  99.34 104.13
-		[6] 100.93 103.85  97.16  96.18 101.42
-		> 
-		> Y
-		[1]  98.39 106.05 111.18  97.65 104.02
-		[6] 100.18 106.20 101.87  92.49 101.41
-		> 
-		> cor(X,Y)
-		[1] 0.7171676
-		> 
-		
-		\end{verbatim}
-	\end{framed}
-}
+| Residence | X      | Y      |
+|-----------|--------|--------|
+|           |        |        |
+| *(data to be completed)* |        |        |
+
+### R Implementation
+
+To calculate the correlation coefficient in R:
+
+```r
+cor(X, Y)  # Pearson by default
+```
+
+For Spearman’s rank correlation, explicitly specify the method:
+
+```r
+cor(X, Y, method = "spearman")
+```
+
+---
+
+## Interpreting the Correlation Coefficient
+
+- The result is a value between −1 and 1:
+  \[
+  -1 \leq r \leq 1
+  \]
+- The strength and direction of the association can be assessed using descriptive thresholds.
+
+---
+
+### Example R Output
+
+```r
+> X
+[1] 104.40 104.14 104.84 99.34 104.13
+[6] 100.93 103.85 97.16 96.18 101.42
+
+> Y
+[1] 98.39 106.05 111.18 97.65 104.02
+[6] 100.18 106.20 101.87 92.49 101.41
+
+> cor(X, Y)
+[1] 0.7171676
+```
+
+This indicates a **strong positive linear relationship** between X and Y.
+
+---
 
 
 
@@ -566,65 +485,59 @@ following formula
 r = { \; n \sum xy - \sum x \sum y   \; \over \left[\;\sqrt{n \sum (x^2) - (\sum x)^2} \;\right] \times  \left[ \;\sqrt{n \sum (y^2) - (\sum y)^2}\; \right]}
 \]
 
-\subsection*{Spearman and Kendall Correlation Coefficients}
-\begin{itemize}
-	\item Non-parametric statistics are statistics that do not require any special assumptions (i.e. Assumption of normality). 
-	\item The \textbf{Spearman's rank-order} and \textbf{Kendall Tau} correlation coefficients are the \textbf{nonparametric} version of the Pearson product-moment correlation. 
-	\item Both methods measure the strength of association between two \textbf{ranked} (ordinal) variables.
-	\item  The coefficients are interpreted the same way as Pearson's Correlation Coefficient.
-\end{itemize}
 
-\begin{framed}
-	\begin{verbatim}
-	### Spearman Correlation Coefficient
-	
-	cor(X,Y, method="spearman")
-	
-	### Kendall Correlation Coefficient
-	
-	cor(X,Y, method="kendall")
-	
-	## [1] 0.6242424
-	## [1] 0.5111111
-	\end{verbatim}
-\end{framed}
+----------------------------------------------------------------------------------------------------
 
-\subsection*{The Coefficient of Determination}
-\begin{itemize}
-	\item The coefficient of determination $R^2$ is the proportion of variability in a data set that is accounted for by the linear model. 
-	\item Equivalently $R^2$ provides a measure of how well future outcomes are likely to be predicted by the model.
-	
-	\item For simple linear regression, it can be computed by squaring the correlation coefficient. It is not specifically defined that way. 
-	\item This relationship is co-incidental when there are just two variables.
-\end{itemize}
-{
-	
-	\begin{framed}
-		\begin{verbatim}
-		> summary(lm(Y~X))
-		
-		Call:
-		lm(formula = Y ~ X)
-		....
-		
-		Coefficients:
-		Estimate Std. Error t value
-		(Intercept) -18.5506    41.4156  -0.448
-		X             1.1855     0.4073   2.911
-		Pr(>|t|)  
-		(Intercept)   0.6661  
-		X             0.0196 *
-		....
-		Residual standard error: 3.884 on 8 degrees of freedom
-		Multiple R-squared:  0.5143,    Adjusted R-squared:  0.4536 
-		F-statistic: 8.472 on 1 and 8 DF,  p-value: 0.01957
-		
-		\end{verbatim}
-	\end{framed}
-}
+## Spearman and Kendall Correlation Coefficients
 
+- **Non-parametric statistics** do not require strong assumptions (e.g., normality).
+- **Spearman's rank-order correlation** and **Kendall's Tau** are **nonparametric alternatives** to the Pearson correlation coefficient.
+- Both measure the strength and direction of association between two **ranked (ordinal)** variables.
+- These coefficients are interpreted in the **same way** as Pearson’s: values close to +1 or −1 indicate strong relationships; values near 0 indicate weak or no relationship.
 
+### R Implementation
 
+```r
+# Spearman Correlation Coefficient
+cor(X, Y, method = "spearman")  # Output: 0.6242424
+
+# Kendall Correlation Coefficient
+cor(X, Y, method = "kendall")   # Output: 0.5111111
+```
+
+---
+
+## The Coefficient of Determination (R²)
+
+- The **coefficient of determination** \( R^2 \) represents the proportion of variability in the dependent variable explained by the regression model.
+- It is an indication of **how well the model fits** the data or **predicts future outcomes**.
+- In **simple linear regression**, \( R^2 \) is equal to the square of the correlation coefficient \( r \), but this is coincidental for bivariate cases.
+
+### R Output Example
+
+```r
+summary(lm(Y ~ X))
+```
+
+Sample Output (abridged):
+
+```
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)  
+(Intercept)  -18.5506    41.4156  -0.448   0.6661
+X              1.1855     0.4073   2.911   0.0196 *
+
+Residual standard error: 3.884 on 8 degrees of freedom
+Multiple R-squared:  0.5143
+Adjusted R-squared:  0.4536
+F-statistic: 8.472 on 1 and 8 DF, p-value: 0.01957
+```
+
+- **Multiple R-squared**: 0.5143 means ~51% of the variance in Y is explained by X.
+- **Adjusted R-squared** adjusts for the number of predictors.
+- The **p-value** indicates the statistical significance of the relationship between X and Y.
+
+---
 
 %-----------------------------------------------------------------------%
 
@@ -647,11 +560,3 @@ r = { \; n \sum xy - \sum x \sum y   \; \over \left[\;\sqrt{n \sum (x^2) - (\sum
 \subsubsection*{The Akaike Information Criterion}
 \noindent The AIC is a model selection metric often used in statistics. It is computed using the R command
 \texttt{\textbf{AIC()}}. The candidate model with the smallest AIC value is considered preferable.
-
-
-
-\end{document}
-	
-
-
-%-------------------------------------------------%
