@@ -1,0 +1,128 @@
+## Regression example
+
+A survey was conducted in 9 areas of the USA to investigate the relationship between
+divorce rate (y) and residential mobility (x). Divorce rates in the annual number per 1000 in the population
+and the residential mobility is measured by the percentage of the population that moved house in the last
+five years.Here’s a step-by-step tutorial for interpreting and solving both regression examples from your notes using standard formulas. I’ll walk through each question methodically:
+
+---
+
+## 📊 Regression Example 1: Divorce Rate & Residential Mobility
+
+Given paired data (x: residential mobility, y: divorce rate) across 9 regions.
+
+### ✅ Confirming Summations
+
+Let’s denote:
+
+- \( \sum x = 426 \)
+- \( \sum x^2 = 20494 \)
+- \( \sum y = 48.7 \)
+- \( \sum y^2 = 276.81 \)
+- \( \sum xy = 2361 \)
+- \( n = 9 \)
+
+These values can be confirmed by manually calculating or using R.
+
+---
+
+### 📈 Regression Line
+
+We use the formulas:
+
+- **Slope**:
+  \[
+  b = \frac{n\sum xy - \sum x \sum y}{n\sum x^2 - (\sum x)^2}
+  \]
+
+- **Intercept**:
+  \[
+  a = \frac{\sum y - b \sum x}{n}
+  \]
+
+**Plug in the numbers**:
+
+- \( b = \frac{9(2361) - 426(48.7)}{9(20494) - 426^2} \approx \frac{21249 - 20746.2}{184446 - 181476} \approx \frac{502.8}{2970} \approx 0.1693 \)
+
+- \( a = \frac{48.7 - 0.1693(426)}{9} \approx \frac{48.7 - 72.1}{9} \approx \frac{-23.4}{9} \approx -2.60 \)
+
+So, the regression equation is:
+\[
+\hat{y} = -2.60 + 0.1693x
+\]
+
+---
+
+### 🔮 Predictions
+
+For:
+- \( x = 39 \): \( \hat{y} = -2.60 + 0.1693(39) \approx 4.01 \)
+- \( x = 60 \): \( \hat{y} = -2.60 + 0.1693(60) \approx 7.56 \)
+
+> The estimate at \( x = 39 \) is likely **more accurate** because it's closer to the mean of the x-values and well within the range of observed data (i.e. less risk of extrapolation error).
+
+---
+
+## 🧪 Regression Example 2: Blood Flow vs. Auricular Pressure
+
+Given:
+- \( S_x = 126.5, \quad S_{xx} = 1381.85 \)
+- \( S_y = 113, \quad S_{yy} = 1251 \)
+- \( S_{xy} = 1272.2, \quad n = 12 \)
+
+---
+
+### 📈 Regression Equation
+
+Slope:
+
+\[
+b = \frac{S_{xy} - \frac{S_x S_y}{n}}{S_{xx} - \frac{S_x^2}{n}}
+\]
+
+Intercept:
+
+\[
+a = \bar{y} - b\bar{x}
+\]
+
+First compute means:
+
+- \( \bar{x} = \frac{126.5}{12} \approx 10.54 \)
+- \( \bar{y} = \frac{113}{12} \approx 9.42 \)
+
+Now:
+
+- Numerator = \( 1272.2 - \frac{126.5 \cdot 113}{12} \approx 1272.2 - 1191.54 = 80.66 \)
+- Denominator = \( 1381.85 - \frac{(126.5)^2}{12} \approx 1381.85 - 1333.02 = 48.83 \)
+
+So:
+
+- \( b = \frac{80.66}{48.83} \approx 1.652 \)
+- \( a = 9.42 - 1.652(10.54) \approx 9.42 - 17.42 = -8.00 \)
+
+Regression line:
+
+\[
+\hat{y} = -8.00 + 1.652x
+\]
+
+---
+
+### 🔗 Correlation Coefficient
+
+Using:
+
+\[
+r = \frac{nS_{xy} - S_x S_y}{\sqrt{(nS_{xx} - S_x^2)(nS_{yy} - S_y^2)}}
+\]
+
+Or simply confirm from R:
+
+```r
+cor(x, y)
+# Output: 0.8521414
+```
+
+> A strong positive correlation (close to 1), indicating a strong linear relationship between pressure and blood flow.
+
