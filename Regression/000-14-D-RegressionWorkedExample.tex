@@ -1,22 +1,124 @@
-\documentclass[]{report}
+Of course — here’s the same structured summary of your regression example, now with all emojis removed:
 
-\voffset=-1.5cm
-\oddsidemargin=0.0cm
-\textwidth = 480pt
+---
 
-\usepackage{framed}
-\usepackage{subfiles}
-\usepackage{graphics}
-\usepackage{newlfont}
-\usepackage{eurosym}
-\usepackage{amsmath,amsthm,amsfonts}
-\usepackage{amsmath}
-\usepackage{color}
-\usepackage{amssymb}
-\usepackage{multicol}
-\usepackage[dvipsnames]{xcolor}
-\usepackage{graphicx}
-\begin{document}
+# Regression Analysis: Advertising vs Sales
+
+## Scenario
+
+A retailer investigates the relationship between weekly advertising expenditure (in £1,000s) and sales revenue (also in £1,000s). The goal:
+- Determine the regression line  
+- Estimate sales for given ad budgets  
+- Assess residuals and model reliability
+
+---
+
+## Collected Data
+
+| Advertising (£000s) | Sales (£000s) |
+|---------------------|---------------|
+| 40, 20, 25, 20, 30, 50, 40, 20, 50, 40, 25, 50 | 385, 400, 395, 365, 475, 440, 490, 420, 560, 525, 480, 510 |
+
+- Total observations: 12
+
+---
+
+## Visual Inspection
+
+Scatterplot shows a weak positive linear relationship between advertising and sales.
+
+---
+
+## Summations & Means
+
+- \( \sum X = 410 \), \( \sum Y = 5445 \)  
+- \( \sum X^2 = 15650 \), \( \sum Y^2 = 2,512,925 \), \( \sum XY = 191,325 \)
+- \( \bar{x} = 34.16 \), \( \bar{y} = 453.75 \)
+
+---
+
+## Sums of Squares
+
+- \( S_{XX} = 1641.67 \)  
+- \( S_{YY} = 42256.25 \)  
+- \( S_{XY} = 5287.5 \)
+
+### Pearson Correlation:
+
+\[
+r = \frac{S_{XY}}{\sqrt{S_{XX} \cdot S_{YY}}}
+= \frac{5287.5}{\sqrt{1641.67 \cdot 42256.25}}
+≈ 0.6348
+\]
+
+This indicates a moderate positive linear correlation.
+
+---
+
+## Regression Line
+
+### Coefficients
+
+- Slope:  
+  \[
+  b_1 = \frac{S_{XY}}{S_{XX}} = \frac{5287.5}{1641.67} ≈ 3.221
+  \]
+- Intercept:  
+  \[
+  b_0 = \bar{y} - b_1 \cdot \bar{x} = 453.75 - (3.221 \cdot 34.16) ≈ 343.70
+  \]
+
+### Equation:
+
+\[
+\hat{y} = 343.70 + 3.221x
+\]
+
+---
+
+## Predictions
+
+- For \( x = 35 \) (£35,000):
+  \[
+  \hat{y} = 343.70 + 3.221(35) = 456.4 ⇒ £456,400
+  \]
+- For \( x = 40 \) (£40,000):
+  \[
+  \hat{y} = 343.70 + 3.221(40) = 472.54 ⇒ £472,540
+  \]
+
+---
+
+## Residuals: Observed vs Predicted
+
+| \( X \) | \( Y \) | \( \hat{y} \) | Residual \( e = Y - \hat{y} \) |
+|--------|---------|--------------|-------------------------------|
+| 40     | 385     | 472.54       | -87.54                        |
+| 40     | 490     | 472.54       | +17.46                        |
+| 40     | 525     | 472.54       | +52.46                        |
+
+- Residuals indicate how far observed values deviate from predicted values.
+
+---
+
+## Assumptions of Least Squares Regression
+
+1. Residuals are independent and normally distributed  
+2. Mean of residuals is zero  
+3. Residuals are independent of \( X \)  
+4. Constant variance across \( X \) (homoscedasticity)
+
+If these assumptions fail, alternate methods should be considered.
+
+---
+
+## Extrapolation Warning
+
+Using the model outside its data range may result in unreliable predictions.
+
+> Example: A model predicting child weight gain by age should not be extended to adults—the relationship changes across age groups.
+
+---
 
 	\chapter{Regression}
 	
