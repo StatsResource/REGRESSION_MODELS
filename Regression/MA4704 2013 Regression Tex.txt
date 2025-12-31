@@ -1,6 +1,3 @@
-Here's a refined and structured version of your lecture content in Markdown, with improved formatting, math expressions, and clear section breakdowns:
-
----
 
 # Bivariate Data
 
@@ -163,4 +160,3 @@ SSE = S_{YY} - b_1 S_{XY}
 
 ---
 
-Let me know if you’d like this converted into printable lecture notes or paired with R code examples.
