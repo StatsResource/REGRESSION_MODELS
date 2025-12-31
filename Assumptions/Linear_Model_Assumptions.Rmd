@@ -1,7 +1,3 @@
-Absolutely, Kevin — here’s your linear regression analysis guide beautifully formatted in Markdown. You can embed the figures as needed by replacing the image placeholders with actual paths or URLs.
-
----
-
 # Linear Regression Analysis
 
 ## Introduction
@@ -100,5 +96,3 @@ Ways to check this in SPSS include:
 - If assumptions are violated, **don't panic** — alternative methods (e.g. robust regression) may be available.
 
 ---
-
-Let me know if you'd like a slide version of this tutorial, or want the SPSS steps detailed next!
